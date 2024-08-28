@@ -1,12 +1,12 @@
-import ViewBase from './../../shared/viewBase.js';
+import ViewBase from "./../../shared/viewBase.js";
 
 export default class View extends ViewBase {
-  #name = document.querySelector('#name');
-  #age = document.querySelector('#age');
-  #email = document.querySelector('#email');
-  #tableBody = document.querySelector('.flex-table');
-  #form = document.querySelector('#form');
-  #btnFormClear = document.querySelector('#btnFormClear');
+  #name = document.querySelector("#name");
+  #age = document.querySelector("#age");
+  #email = document.querySelector("#email");
+  #tableBody = document.querySelector(".flex-table");
+  #form = document.querySelector("#form");
+  #btnFormClear = document.querySelector("#btnFormClear");
 
   /**
    * Adds a new row of data to the display.
@@ -15,8 +15,8 @@ export default class View extends ViewBase {
    * @returns {void}
    */
   addRow(data) {
-    const row = document.createElement('div');
-    row.classList.add('flex-table-row');
+    const row = document.createElement("div");
+    row.classList.add("flex-table-row");
 
     row.innerHTML = `
       <div>${data.name}</div>
@@ -34,9 +34,9 @@ export default class View extends ViewBase {
    * @returns {void}
    */
   configureFormSubmit(fn) {
-    this.#form.addEventListener('submit', event => {
+    this.#form.addEventListener("submit", (event) => {
       event.preventDefault();
-      
+
       const name = this.#name.value;
       const age = this.#age.value;
       const email = this.#email.value;
@@ -53,16 +53,16 @@ export default class View extends ViewBase {
    * @param {boolean} notification.isError - Whether the message is an error.
    * @returns {void}
    */
-    notify({ msg, isError }) {
-      alert(msg);
+  notify({ msg, isError }) {
+    alert(msg);
   }
 
   /**
    * Resets the form fields to their initial state.
    * @returns {void}
    */
-    resetForm() {
-      this.#form.reset();
+  resetForm() {
+    this.#form.reset();
   }
 
   /**
@@ -72,7 +72,7 @@ export default class View extends ViewBase {
    * @returns {void}
    */
   configureFormClear(_fn) {
-    this.#btnFormClear.addEventListener('click', () => {
+    this.#btnFormClear.addEventListener("click", () => {
       this.resetForm();
     });
   }
@@ -84,6 +84,6 @@ export default class View extends ViewBase {
    * @returns {void}
    */
   render(items) {
-    items.forEach(item => this.addRow(item));
+    items.forEach((item) => this.addRow(item));
   }
 }

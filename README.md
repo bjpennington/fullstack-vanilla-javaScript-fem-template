@@ -1,8 +1,10 @@
 # Fullstack-vanilla-javaScript-fem
 
+![Build Status](https://github.com/bjpennington/fullstack-vanilla-javaScript-fem-template/workflows/Run%20tests/badge.svg)
+
 ## Abstract Factory
 
-```
+```docs
 .
 ├── src
 │   ├── platforms
@@ -20,7 +22,7 @@ platforms/ - Platform-Specific Implementations: You have different implementatio
 
 ui/index.js - Factory Behavior: Your controller is acting as a factory that decides which specific view to create based on the app running, which is the core of the Abstract Factory pattern.
 
-# Fullstack Vanilla JavaScript
+## Fullstack Vanilla JavaScript
 
 > August 28 to 29, 2024 - 9:30am to 5:30pm Central Daylight Time
 
@@ -28,7 +30,7 @@ ui/index.js - Factory Behavior: Your controller is acting as a factory that deci
 
 Acess the [slides](https://www.icloud.com/keynote/032Y1iBWTJMdLbFIw2A3F23VA#FullStack_Vanilla_JS_-_FEM_-_Erick_Wendel)
 
-## Key Takeaways
+### Key Takeaways
 
 By participating along with us in the workshop, you'll learn:
 
@@ -38,15 +40,15 @@ By participating along with us in the workshop, you'll learn:
 - Test your JavaScript code using the native Node.js test runner
 - Deploy your CLI app to an npm registry and your web app to GitHub Pages
 
-### Is This Workshop for Me?
+#### Is This Workshop for Me?
 
 This course is designed for developers who want to build full-stack JavaScript applications without relying on bundlers, and efficiently share code between the browser and Node.js environments.
 
-## Workshop Details
+### Workshop Details
 
 In this app-oriented course, you’ll create and deploy a complete multi-platform application that runs in the browser and the desktop, sharing JavaScript code. Each hour, you’ll refactor and advance your application, learning fundamental concepts about ES Modules, code sharing, design patterns, best practices, and testing along the way.
 
-### Any Prerequisites?
+#### Any Prerequisites?
 
 - Familiarity with JavaScript and Node.js
 - Basic understanding of web development concepts

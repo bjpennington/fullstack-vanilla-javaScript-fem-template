@@ -16,7 +16,13 @@ export default class Controller {
     return controller;
   }
 
+  #onSubmit({ name, age, email }) {
+    console.log('received', { name, age, email });
+  }
+
   #init() {
+    this.#view.configureFormSubmit(this.#onSubmit.bind(this));
+
     const initialData = [
       { name: 'Erick Wendel', age: 28, email: 'erick@erick.com' },
       { name: 'Ana Neri', age: 24, email: 'ana@ana.com' },

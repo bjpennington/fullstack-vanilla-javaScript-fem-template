@@ -6,4 +6,4 @@ const { default: View } = await import(`./../src/platforms/${platform}/view.js`)
 
 Controller.init({
   view: new View()
-})
+});

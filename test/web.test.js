@@ -1,7 +1,7 @@
-import { describe, it } from "node:test";
-import Controller from "../src/shared/controller.js";
-import View from "./../src/platforms/web/view.js";
 import assert from "node:assert";
+import { describe, it } from "node:test";
+import View from "./../src/platforms/web/view.js";
+import Controller from "../src/shared/controller.js";
 
 function getDocument(
   mock,

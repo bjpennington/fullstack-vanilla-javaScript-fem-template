@@ -42,6 +42,7 @@ export default class Controller {
       { name: "Ana Neri", age: 24, email: "ana@ana.com" },
       { name: "Marc Berg", age: 24, email: "marc@marc.com" },
     ];
+
     this.#view.render(initialData);
   }
 }

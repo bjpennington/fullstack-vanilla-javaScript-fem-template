@@ -16,24 +16,24 @@ export default class View extends ViewBase {
   }
 
   #prepareData(items) {
-    if(!items.length) {
+    if (!items.length) {
       return {
         headers: this.#headers,
-        data: []
-      }
+        data: [],
+      };
     }
 
     this.#headers = Object.keys(items[0]);
 
     return {
       headers: this.#headers,
-      data: items.map((item) => Object.values(item))
+      data: items.map((item) => Object.values(item)),
     };
   }
 
   addRow(item) {
     this.#data.push(item);
-    const items = this.#prepareData(this.#data)
+    const items = this.#prepareData(this.#data);
     this.#components.table.setData(items);
     this.#components.screen.render();
   }

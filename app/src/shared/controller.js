@@ -1,18 +1,23 @@
 /**
  * @typedef {import('./viewBase.js').default} View
+ * @typedef {import('./service.js').default} Service
  */
 export default class Controller {
   /** @type { View } */
   #view;
 
-  /** @param {{ view: View }} deps */
-  constructor({ view }) {
+  /** @type { Service } */
+  #service;
+
+  /** @param {{ view: View, service: Service }} deps */
+  constructor({ view, service }) {
     this.#view = view;
+    this.#service = service;
   }
 
-  static init(deps) {
+  static async init(deps) {
     const controller = new Controller(deps);
-    controller.#init();
+    await controller.#init();
     return controller;
   }
 
@@ -33,14 +38,27 @@ export default class Controller {
     this.#view.resetForm();
   }
 
-  #init() {
+  async #getUsersFromAPI() {
+    try {
+      const result = await this.#service.getUsers();
+      return result;
+    } catch (error) {
+      this.#view.notify({ msg: "server is not available" });
+      return [];
+    }
+  }
+
+  async #init() {
     this.#view.configureFormSubmit(this.#onSubmit.bind(this));
     this.#view.configureFormClear();
+
+    const data = await this.#getUsersFromAPI();
 
     const initialData = [
       { name: "Erick Wendel", age: 28, email: "erick@erick.com" },
       { name: "Ana Neri", age: 24, email: "ana@ana.com" },
       { name: "Marc Berg", age: 24, email: "marc@marc.com" },
+      ...data,
     ];
 
     this.#view.render(initialData);

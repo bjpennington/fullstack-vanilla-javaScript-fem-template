@@ -25,7 +25,7 @@ export default class Controller {
     return data.name && data.age && data.email;
   }
 
-  #onSubmit({ name, age, email }) {
+  async #onSubmit({ name, age, email }) {
     if (!this.#isValid({ name, age, email })) {
       this.#view.notify({
         msg: "Please fill out all the fields",
@@ -34,7 +34,15 @@ export default class Controller {
       return;
     }
 
-    this.#view.addRow({ name, age, email });
+    let newUser;
+    try {
+      const result = await this.#service.createUser({ name, age, email });
+      newUser = result.user;
+    } catch (error) {
+      this.#view.notify({ msg: "server is not available!" });
+    }
+
+    this.#view.addRow(newUser);
     this.#view.resetForm();
   }
 

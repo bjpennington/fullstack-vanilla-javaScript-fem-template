@@ -9,4 +9,13 @@ export default class Service {
     const result = await fetch(`${this.#url}/users`);
     return result.json();
   }
+
+  async createUser(data) {
+    const result = await fetch(`${this.#url}/users`, {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+
+    return result.json();
+  }
 }
